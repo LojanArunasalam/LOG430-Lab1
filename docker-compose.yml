@@ -1,4 +1,7 @@
 services: 
+
+  app: 
+    build: .
   postgres-db:
     image: postgres:16
     container_name: caisse_db

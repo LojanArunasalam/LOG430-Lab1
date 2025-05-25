@@ -1,0 +1,9 @@
+@startuml  
+
+
+title Diagramme de déploiement - Système de point de vente
+node Python app 
+database PostgreSQL
+
+
+@enduml 

@@ -1,10 +1,4 @@
-# We need to populate the database
-def populate_database():
-    pass
-
-
 def main():
-    populate_database()
     message = """
 ======= CAISSE =======
 1 - Rechercher un produit
@@ -30,7 +24,6 @@ def main():
             break
         else:
             continue
-
 
 if __name__ == "__main__":
     main()

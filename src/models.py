@@ -9,6 +9,10 @@ class Product(Base):
     __tablename__ = "products"
 
     id = Column(Integer, primary_key=True)
+    name = Column(String)
+    category = Column(String)
+    description = Column(String)
+
 
 class Sale(Base):
     __tablename__ = "sales"
@@ -20,6 +24,11 @@ class User(Base):
 
     id = Column(Integer, primary_key=True)
     name = Column(String)
+
+class LineSale(Base):
+    __tablename__ = "line_sales" 
+
+    id = Columm(Integer, primary_key=True)
 
 # Will create the database + the tables associated with it
 Base.metadata.create_all(engine)

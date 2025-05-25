@@ -1,7 +1,13 @@
 services: 
-
-  app: 
+  caisse-1: 
     build: .
+    depends-on: postgres-db
+  caisse-2: 
+    build: .
+    depends-on: postgres-db
+  caisse-3: 
+    build: .
+    depends-on: postgres-db
   postgres-db:
     image: postgres:16
     container_name: caisse_db
@@ -11,4 +17,3 @@ services:
       POSTGRES_DB: postgres
     ports:
       - "5432:5432"
-    restart: unless-stopped

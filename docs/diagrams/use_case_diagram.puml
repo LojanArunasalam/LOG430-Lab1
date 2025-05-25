@@ -1,7 +1,7 @@
 @startuml
 left to right direction
-actor "User" as user
-rectangle systeme_POS {
+actor "Utilisateur" as user
+rectangle système_POS {
   usecase "Rechercher un produit" as UC1
   usecase "Enregistrer une vente" as UC2
   usecase "Gérer les retours" as UC3

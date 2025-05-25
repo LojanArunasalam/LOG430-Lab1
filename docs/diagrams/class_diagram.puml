@@ -5,6 +5,7 @@ title Diagramme de classes - Système de point de vente
 class Produit {
   id: int
   nom: str
+  description: str
   categorie: str
   prix_unitaire: float
   quantite_stock: int

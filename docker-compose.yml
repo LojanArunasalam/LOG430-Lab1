@@ -1,19 +1,17 @@
 services: 
   caisse-1: 
-    build: .
-    depends-on: postgres-db
-  caisse-2: 
-    build: .
-    depends-on: postgres-db
-  caisse-3: 
-    build: .
-    depends-on: postgres-db
-  postgres-db:
+      build: .
+      depends_on: 
+      - db
+  db:
     image: postgres:16
-    container_name: caisse_db
+    container_name: db
     environment:
       POSTGRES_USER: admin
       POSTGRES_PASSWORD: admin
       POSTGRES_DB: postgres
     ports:
       - "5432:5432"
+    volumes: 
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+  

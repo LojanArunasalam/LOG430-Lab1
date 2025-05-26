@@ -11,7 +11,7 @@ participant "user" as user
 participant "app" as app
 participant "database" as db 
 
-user -> app : Gerer un retour 
+user -> app : Gérer un retour 
 app -> db : return_sale(sale)
 
 

@@ -3,6 +3,14 @@ services:
       build: .
       depends_on: 
       - db
+  caisse-2: 
+      build: .
+      depends_on: 
+      - db
+  caisse-3: 
+      build: .
+      depends_on: 
+      - db
   db:
     image: postgres:16
     container_name: db

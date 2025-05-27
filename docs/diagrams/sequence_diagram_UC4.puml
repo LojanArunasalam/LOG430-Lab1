@@ -13,6 +13,6 @@ participant "database" as db
 user -> app : Consulter le stock d'un produit 
 app -> db : check_stock(id_product)
 db --> app : int: stock
-app --> user : Afficher stock 
+app --> user : int: stock
 
 @enduml

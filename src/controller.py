@@ -19,13 +19,13 @@ def update_stock(product, quantite):
 
 def create_line_sale(product, quantite_voulu):
     line_sale = LineSale(quantite=quantite_voulu, prix=quantite_voulu*product.prix_unitaire)
+    product.ligne_vente.append(line_sale)
     return line_sale
 
-def create_sale(lines_sales, product):
+def create_sale(lines_sales):
     total = 0
     for line in lines_sales:
         total = total + line.prix
-        product.ligne_vente.append(line)
         session.add(line)
 
     sale = Sale(total=total)

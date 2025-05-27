@@ -47,11 +47,10 @@ def main():
                 session.add(product)
                 session.commit()
                 ligne_vente = controller.create_line_sale(product, quantite_voulu)
-                        
                 lignes_ventes.append(ligne_vente)
                         
 
-            sale = controller.create_sale(lignes_ventes, product)
+            sale = controller.create_sale(lignes_ventes)
             session.add(sale)
             session.commit()
         elif choice == 3:

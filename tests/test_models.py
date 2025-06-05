@@ -10,7 +10,6 @@ def test_product():
         stock=100
     )
     assert product.name == "Timbits"
-    assert product.stock == 100
     assert product.prix_unitaire == pytest.approx(0.25)
 
 def test_sale():

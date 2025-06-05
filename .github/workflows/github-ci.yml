@@ -38,11 +38,11 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Test with pytest
       run: |
-        pytest test/test_models.py
+        PYTHONPATH=src pytest
     - name: Build Docker Image
       run: |
         docker build -t lojanarun/caisse:latest . 
     - name: Publish to Docker Hub
       run: |
         docker login -u lojanarun -p ${{ secrets.DOCKER_HUB_TOKEN}}
-        docker push lojanarun/caisse:latest
+        docker push lojanarun/lab1:latest

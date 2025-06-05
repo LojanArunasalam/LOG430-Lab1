@@ -1,11 +1,14 @@
 from sqlalchemy.orm import declarative_base, relationship
 from sqlalchemy import Column, Integer, String, Float, ForeignKey, create_engine 
+from dotenv import load_dotenv
 import os
 
-DATABASE_URL = os.getenv('DATABASE_URL', '10.194.32.165:5432')
+load_dotenv()
+DATABASE_URL = os.getenv('DATABASE_URL')
+print(DATABASE_URL)
 
-db_url = 'postgresql+psycopg2://admin:admin@10.194.32.165:5432/postgres'
-engine = create_engine(db_url)
+
+engine = create_engine(DATABASE_URL)
 Base = declarative_base()
 
 class LineSale(Base):

@@ -21,6 +21,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+    - name: Pull postgres
+      run: |
+        docker pull postgres:latest
+        docker run -d --name postgres --env POSTGRES_USER=admin --env POSTGRES_PASSWORD=admin --volume ./init.sql:/docker-entrypoint-initdb.d/init.sql --p 5432:5432 
     - name: Set up Python 3.12
       uses: actions/setup-python@v3
       with:
@@ -30,6 +34,7 @@ jobs:
         python -m pip install --upgrade pip
         pip install flake8 pytest
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
     - name: Lint with flake8
       run: |
         # stop the build if there are Python syntax errors or undefined names
@@ -40,10 +45,10 @@ jobs:
       env: 
         DATABASE_URL: postgresql+psycopg2://admin:admin@localhost:5432/postgres
       run: |
-        PYTHONPATH=src pytest
+        pytest tests
     - name: Build Docker Image
       run: |
-        docker build -t lojanarun/caisse:latest . 
+        docker build -t lojanarun/lab1:latest . 
     - name: Publish to Docker Hub
       run: |
         docker login -u lojanarun -p ${{ secrets.DOCKER_HUB_TOKEN}}

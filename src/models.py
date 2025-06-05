@@ -1,5 +1,8 @@
 from sqlalchemy.orm import declarative_base, relationship
 from sqlalchemy import Column, Integer, String, Float, ForeignKey, create_engine 
+import os
+
+DATABASE_URL = os.getenv('DATABASE_URL', '10.194.32.165:5432')
 
 db_url = 'postgresql+psycopg2://admin:admin@10.194.32.165:5432/postgres'
 engine = create_engine(db_url)

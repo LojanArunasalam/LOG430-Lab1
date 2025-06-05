@@ -24,7 +24,7 @@ jobs:
     - name: Pull postgres
       run: |
         docker pull postgres:latest
-        docker run postgres:latest-d --name postgres --env POSTGRES_USER=admin --env POSTGRES_PASSWORD=admin --volume ./init.sql:/docker-entrypoint-initdb.d/init.sql -p 5432:5432 
+        docker run postgres:latest -d -e POSTGRES_USER=admin -e POSTGRES_PASSWORD=admin -e POSTGRES_DB=postgres 5432:5432 -v ./init.sql:/docker-entrypoint-initdb.d/init.sql  
     - name: Set up Python 3.12
       uses: actions/setup-python@v3
       with:
